@@ -98,3 +98,6 @@ app.post("/delete/:id", async (req, res) => {
 
 // Tells the app which port to run on
 app.listen(8080);
+app.get('/demo', function(req, res) {
+  res.render('pages/demo');
+});
