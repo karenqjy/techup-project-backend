@@ -51,9 +51,9 @@ function renderCompetencyFields(numCompetencies, defaultMCQ, defaultOE, defaultE
 
 jobGradeDropdown.addEventListener("change", () => {
     const selectedGrade = jobGradeDropdown.value;
-    if (["D", "E", "F"].includes(selectedGrade)) {
+    if (["D-F"].includes(selectedGrade)) {
         renderCompetencyFields(2, 30, 5, 1);
-    } else if (["G", "H", "I", "J"].includes(selectedGrade)) {
+    } else if (["G-J"].includes(selectedGrade)) {
         renderCompetencyFields(3, 15, 5, 1);
     } else {
         renderCompetencyFields(4, 10, 5, 1);

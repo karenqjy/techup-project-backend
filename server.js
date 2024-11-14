@@ -25,7 +25,7 @@ app.get('/', async function(req, res) {
     // Try-Catch for any errors
     try {
         // Get all blog posts
-        const blogs = await prisma.post.findMany({
+        const blogs = await prisma.competency_questions.findMany({
                 orderBy: [
                   {
                     id: 'desc'
@@ -95,6 +95,35 @@ app.post("/delete/:id", async (req, res) => {
         res.redirect('/');
     }
   });
+
+app.post('/api/get-questions', async (req, res) => {
+  const { competency, proficiency, questionType, questionCount } = req.body;
+
+  competency ="Security Operations";
+  proficiency ="L1 ",
+  questionType ="MCQ",
+  questionCount = 10
+
+  try {
+    const questions = await prisma.competency_questions.findMany({
+      where: {
+       competency: competency,
+       question_type: questionType,
+       proficiency: proficiency,
+      },
+      // orderBy: {
+      //   id: 'desc' // Fetching in descending order for randomness in this example; can adjust as needed
+      // },
+      take: questionCount
+    });
+
+    res.json(questions);
+  } catch (error) {
+    console.error('Error fetching questions:', error);
+    res.status(500).send('Error fetching questions');
+  }
+
+});
 
 // Tells the app which port to run on
 app.listen(8080);
