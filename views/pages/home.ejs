@@ -1,46 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
-    <link rel="stylesheet" href="/css/style.css" >
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9RBCK0N11Z"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9RBCK0N11Z');
-    </script>
+    <title>Competencies Assessment Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="container">
-        <!-- Navbar which can be reused across other pages -->
-        <%- include('../partials/navbar'); %>
-
-        <!-- Information welcoming visitors to my page -->
-        <div class="welcome-container">
-            <h1>Welcome to my blog</h1>
-            <h2>Learn about what happened in my day!</h2>
+    <div class="container">
+        <h1 class="title">Competencies Assessment Generator</h1>
+        
+        <div class="form-group">
+            <label for="job-grade">Job Grade</label>
+            <select id="job-grade">
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+            </select>
         </div>
 
-        <div class="new-post-btn-container">
-           <a href="/new" class="button" role="button">+ New Post</a>
+        <div id="competencies-section" class="competencies-section"></div>
+
+        <div class="totals-time-wrapper">
+            <!-- Total Number of Questions Section -->
+            <div class="total-section">
+                <h3 class="section-title">Total Number of Questions</h3>
+                <div class="question-count">
+                    <label for="total-mcq">MCQ</label>
+                    <input type="text" id="total-mcq" readonly>
+                    
+                    <label for="total-oe">OE</label>
+                    <input type="text" id="total-oe" readonly>
+                    
+                    <label for="total-e">E</label>
+                    <input type="text" id="total-e" readonly>
+                </div>
+            </div>
+        
+            <!-- Time Allocated Section -->
+            <div class="total-section">
+                <h3 class="section-title">Time Allocated</h3>
+                <div class="time-count">
+                    <label for="time-mcq">MCQ</label>
+                    <input type="text" id="time-mcq" readonly>
+                    
+                    <label for="time-oe">OE</label>
+                    <input type="text" id="time-oe" readonly>
+                    
+                    <label for="time-e">E</label>
+                    <input type="text" id="time-e" readonly>
+                </div>
+                <div class="total-time-wrapper">
+                    <label for="total-time">Total Time Allocated</label>
+                    <input type="text" id="total-time" readonly>
+                </div>
+            </div>
+        </div>
+        
+        <div class="time-per-question">
+            <h3><strong>Time Allocated per Question</strong></h3>
+            <p><strong>MCQ:</strong> 1 min/question, <strong>OE:</strong> 3 mins/question, <strong>E:</strong> 30 mins/question</p>
         </div>
 
-        <!-- Show blog posts -->
-        <% blogs.forEach(post => { %>
-            <article class="post-container">
-                <h3><%= post.title %></h3>
-                <p><%= post.content %></p>
-                <form action="/delete/<%= post.id %>" method="post" onsubmit="return confirm('Do you really want to delete this post?');">
-                    <button class="outline primary" type="submit">Delete</button>
-                </form>
-            </article>
-        <% }); %>
-    </main>
+        <div class="legends">
+            <h3><strong>Legends</strong></h3>
+            <p><strong>PL:</strong> Proficiency Level, <strong>MCQ:</strong> Multiple Choice Questions, <strong>OE:</strong> Open-ended Questions, <strong>E:</strong> Essay Questions</p>
+        </div>
+
+        <button onclick="generateAssessment()" class="generate-button">Generate Assessment</button>
+
+        <div id="assessment-output" class="assessment-output">
+            <h3>Generated Assessment Placeholder</h3>
+            <p>Your generated assessment will appear here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
