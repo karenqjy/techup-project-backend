@@ -1,37 +1,197 @@
-.welcome-container {
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f8fc;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.new-post-btn-container{
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+.container {
+  width: 800px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.post-container {
-    max-width: 800px;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.title {
+  text-align: center;
+  color: #004085;
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 20px;
 }
 
-.about-container {
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+.form-group, .totals-time-wrapper {
+  margin-bottom: 20px;
 }
 
-.about-container > img{
-    margin-bottom: 40px;
+label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
 }
 
-.cancel-create-post {
-    text-align: center;
+select, input[type="text"], input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+select#job-grade {
+  width: 80px;
+}
+
+.competency {
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #f0f4f8;
+  border: 1px solid #d1e0eb;
+  border-radius: 8px;
+}
+
+.competency-header {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  display: inline-block;
+  width: 155px;
+}
+
+.competency .fields {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.competency label {
+  margin-right: 10px;
+}
+
+select.competency-dropdown {
+  width: 340px;
+}
+
+select.proficiency-level, input[type="number"] {
+  width: 70px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+.total-questions-time {
+  padding: 20px;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.question-count, .time-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.question-count label, .time-count label {
+  display: inline-block;
+  font-weight: bold;
+  color: #555;
+}
+
+.time-count .total-time {
+  margin-top: 15px;
+}
+
+.time-per-question, .legends {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #555;
+  background-color: #e9f1f8;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.time-per-question h3, .legends h3 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #004085;
+}
+
+/* Wrapper for both sections to align them side by side */
+.totals-time-wrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Style for each section (Total Number of Questions and Time Allocated) */
+.total-section {
+  background-color: #f7fafc; /* Light background similar to other sections */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to match the container */
+  width: 100%;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #004085;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Uniform input and label layout in each section */
+.question-count, .time-count, .total-time-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"] {
+  width: 100px; /* Ensures alignment across inputs */
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.generate-button {
+  display: block;
+  margin: 30px auto;
+  padding: 14px 28px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-button:hover {
+  background-color: #004085;
+}
+
+.assessment-output {
+  margin-top: 20px;
+  text-align: center;
+  padding: 12px;
+  color: #333;
+  font-size: 15px;
+  background-color: #eef3f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
