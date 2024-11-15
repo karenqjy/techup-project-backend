@@ -177,9 +177,9 @@ function displayArrayAsTable(data) {
 
     //console.log(combinedArr);
     document.getElementById("table-container").innerHTML="";
-    displayRefinedTable(mcqQuestions,"MCQ");
-    displayRefinedTable(oeQuestions,"OE");
-    displayRefinedTable(efQuestions,"E");
+    displayRefinedTable(mcqQuestions,"Multiple Choice Questions");
+    displayRefinedTable(oeQuestions,"Open-ended Questions");
+    displayRefinedTable(efQuestions,"Essay Questions");
 
 }
 
