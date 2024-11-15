@@ -97,31 +97,68 @@ app.post("/delete/:id", async (req, res) => {
   });
 
 app.post('/api/get-questions', async (req, res) => {
-  const { competency, proficiency, questionType, questionCount } = req.body;
+  //const { competency, proficiency, questionType, questionCount } = req.body;
+  const dvalues = req.body;
+  //const dataArray = JSON.parse(dvalues);
 
-  competency ="Security Operations";
-  proficiency ="L1 ",
-  questionType ="MCQ",
-  questionCount = 10
+  let idx = 0;
+  let result = [];
 
-  try {
-    const questions = await prisma.competency_questions.findMany({
-      where: {
-       competency: competency,
-       question_type: questionType,
-       proficiency: proficiency,
-      },
-      // orderBy: {
-      //   id: 'desc' // Fetching in descending order for randomness in this example; can adjust as needed
-      // },
-      take: questionCount
-    });
+  while (idx < dvalues.length){
+    //console.log(dvalues[idx].compentency);
+    try {
+      const questions = await prisma.competency_questions.findMany({
+        where: {
+          competency: dvalues[idx].compentency,
+          proficiency: dvalues[idx].proficiency,
+        },
+      });
 
-    res.json(questions);
-  } catch (error) {
-    console.error('Error fetching questions:', error);
-    res.status(500).send('Error fetching questions');
+      let numMcq = parseInt(dvalues[idx].mcq);
+      let numOe = parseInt(dvalues[idx].oe);
+      let numEf = parseInt(dvalues[idx].ef);
+
+      let mcqArray, mcqArray_final = [];
+      let oeArray, oeArray_final = [];
+      let efArray, efArray_final = [];
+
+      mcqArray = questions.filter(item => item.question_type === 'MCQ');
+      mcqArray_final = getRandomItems(mcqArray, numMcq);
+
+      oeArray = questions.filter(item => item.question_type === 'OE');
+      oeArray_final = getRandomItems(oeArray, numOe);
+
+      efArray = questions.filter(item => item.question_type === 'E');
+      efArray_final = getRandomItems(efArray, numEf);
+
+      result.push(mcqArray_final);
+      result.push(oeArray_final);
+      result.push(efArray_final);
+
+    } catch (error) {
+        console.error('Error fetching questions:', error);
+        res.status(500).send('Error fetching questions');
+    }
+
+    idx ++;
   }
+
+  res.json(result);
+
+  // try {
+  //   const questions = await prisma.competency_questions.findMany({
+  //     where: {
+  //      competency: dvalues[0].competency,
+  //      proficiency: dvalues[0].proficiency,
+  //     },
+  //     take: 100
+  //   });
+
+  //   res.json(questions);
+  // } catch (error) {
+  //   console.error('Error fetching questions:', error);
+  //   res.status(500).send('Error fetching questions');
+  // }
 
 });
 
@@ -130,3 +167,10 @@ app.listen(8080);
 app.get('/demo', function(req, res) {
   res.render('pages/demo');
 });
+
+function getRandomItems(arr, numItems) {
+  // Shuffle the array
+  const shuffledArray = arr.sort(() => 0.5 - Math.random());
+  // Return the first `numItems` items from the shuffled array
+  return shuffledArray.slice(0, numItems);
+}

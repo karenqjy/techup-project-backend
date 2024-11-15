@@ -132,25 +132,52 @@ select.proficiency-level, input[type="number"] {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to match the container */
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Section titles */
 .section-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #004085;
   margin-bottom: 15px;
   text-align: left;
+  display: inline-block;
+  width: 106px;
+    margin-top: 0px;
 }
 
 /* Uniform input and label layout in each section */
 .question-count, .time-count, .total-time-wrapper {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  /* display: grid; */
+  /* grid-template-columns: auto 1fr;
   gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: center;*/
+  margin-bottom: 10px; 
+  display: inline;
+}
+
+#total-mcq, #time-mcq {
+  width: 88px;
+  text-align: center;
+  margin-right: 4px;
+}
+
+#total-oe, #time-oe {
+  width: 88px;
+  text-align: center;
+  margin-right: 9px;
+}
+
+#total-e, #time-e{
+  width: 88px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+#total-time {
+  margin-left: 40px;
+    width: 220px;
 }
 
 label {
@@ -194,4 +221,12 @@ input[type="text"] {
   background-color: #eef3f9;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+.datatable, .datatable td, .datatable tr{
+  text-align: left;
+}
+.datatable td {
+  padding: 5px;
+  vertical-align: top;
 }

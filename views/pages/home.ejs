@@ -21,39 +21,34 @@
 
         <div id="competencies-section" class="competencies-section"></div>
 
-        <div class="totals-time-wrapper">
-            <!-- Total Number of Questions Section -->
-            <div class="total-section">
-                <h3 class="section-title">Total Number of Questions</h3>
-                <div class="question-count">
-                    <label for="total-mcq">MCQ</label>
-                    <input type="text" id="total-mcq" readonly>
-                    
-                    <label for="total-oe">OE</label>
-                    <input type="text" id="total-oe" readonly>
-                    
-                    <label for="total-e">E</label>
-                    <input type="text" id="total-e" readonly>
-                </div>
+        <div class="total-section">
+            <h3 class="section-title">Total No. of Questions</h3>
+            <div class="question-count">
+                <label for="total-mcq">MCQ</label>
+                <input type="text" id="total-mcq" readonly>
+                
+                <label for="total-oe">OE</label>
+                <input type="text" id="total-oe" readonly>
+                
+                <label for="total-e">E</label>
+                <input type="text" id="total-e" readonly>
             </div>
-        
-            <!-- Time Allocated Section -->
-            <div class="total-section">
-                <h3 class="section-title">Time Allocated</h3>
-                <div class="time-count">
-                    <label for="time-mcq">MCQ</label>
-                    <input type="text" id="time-mcq" readonly>
-                    
-                    <label for="time-oe">OE</label>
-                    <input type="text" id="time-oe" readonly>
-                    
-                    <label for="time-e">E</label>
-                    <input type="text" id="time-e" readonly>
-                </div>
-                <div class="total-time-wrapper">
-                    <label for="total-time">Total Time Allocated</label>
-                    <input type="text" id="total-time" readonly>
-                </div>
+            <div style="clear: both;"></div>
+            <h3 class="section-title">Time Allocated</h3>
+            <div class="time-count">
+                <label for="time-mcq">MCQ</label>
+                <input type="text" id="time-mcq" readonly>
+                
+                <label for="time-oe">OE</label>
+                <input type="text" id="time-oe" readonly>
+                
+                <label for="time-e">E</label>
+                <input type="text" id="time-e" readonly>
+            </div>
+            <div style="clear: both;"></div>
+            <div class="total-time-wrapper">
+                <label for="total-time" class="section-title">Total Time Allocated</label>
+                <input type="text" id="total-time" readonly>
             </div>
         </div>
         
@@ -70,8 +65,12 @@
         <button onclick="generateAssessment()" class="generate-button">Generate Assessment</button>
 
         <div id="assessment-output" class="assessment-output">
-            <h3>Generated Assessment Placeholder</h3>
-            <p>Your generated assessment will appear here.</p>
+            <div id="messages">
+                <h3>Generated Assessment Placeholder</h3>
+                <p>Your generated assessment will appear here.</p>
+            </div>
+
+            <div id="table-container"></div>
         </div>
     </div>
 
