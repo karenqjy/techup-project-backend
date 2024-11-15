@@ -10,13 +10,17 @@ const totalTimeInput = document.getElementById("total-time");
 
 var globalData;
 
+// const competenciesOptions = [
+//     "Security Operations", "SOC Engineering", "Cyber Threat Intelligence", "Cyber Threat Hunting",
+//     "Incident Response", "Digital Forensics", "Malware Analysis", "Security Design & Engineering",
+//     "Cryptographic Management", "Cloud Security", "Cyber Programme Management", "Cyber Product Engineering",
+//     "DevSecOps", "Security Testing", "Adversary Simulation", "Policy & Strategy (ICT&SS)",
+//     "Cyber Risk Assessment & Management", "Ecosystem Development", "International Cooperation Development",
+//     "Security Engagement & Promotion", "Regulations", "Policy & Strategy (National Level)"
+// ];
 const competenciesOptions = [
-    "Security Operations", "SOC Engineering", "Cyber Threat Intelligence", "Cyber Threat Hunting",
-    "Incident Response", "Digital Forensics", "Malware Analysis", "Security Design & Engineering",
-    "Cryptographic Management", "Cloud Security", "Cyber Programme Management", "Cyber Product Engineering",
-    "DevSecOps", "Security Testing", "Adversary Simulation", "Policy & Strategy (ICT&SS)",
-    "Cyber Risk Assessment & Management", "Ecosystem Development", "International Cooperation Development",
-    "Security Engagement & Promotion", "Regulations", "Policy & Strategy (National Level)"
+    "Security Operations", "Cyber Threat Intelligence","Digital Forensics", "Security Testing", "Adversary Simulation",
+    "Cyber Risk Assessment & Management", "SOC Engineering"
 ];
 
 function renderCompetencyFields(numCompetencies, defaultMCQ, defaultOE, defaultE) {
