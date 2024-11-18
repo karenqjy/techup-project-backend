@@ -230,3 +230,14 @@ input[type="text"] {
   padding: 5px;
   vertical-align: top;
 }
+
+/* Footer styling for the disclaimer */
+footer.disclaimer {
+  font-size: 0.8rem; /* Smaller font size */
+  color: #666; /* Subtle gray color */
+  text-align: center; /* Centered text */
+  margin-top: 20px; /* Space above the footer */
+  padding: 10px 20px; /* Padding for breathing room */
+  background-color: #f9f9f9; /* Light background color for distinction */
+  border-top: 1px solid #ddd; /* Subtle top border */
+}
